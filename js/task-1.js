@@ -4,7 +4,18 @@ products — об’єкт, у якому ключі містять назви �
 containerSize — число, максимальна кількість одиниць товарів, яку в себе може вмістити контейнер.
 Функція має повернути результат перевірки, чи помістяться всі товари в контейнер. Тобто порахувати загальну кількість товарів в об’єкті products і повернути true, якщо вона менше або дорівнює containerSize, і false, якщо ні.*/
 
-function isEnoughCapacity(products, containerSize) {};
+function isEnoughCapacity(products, containerSize) {
+  let totalSum = 0;
+  for (const product in products) {
+  totalSum += products[product];
+  };
+  if (totalSum <= containerSize) {
+    return true;
+  }
+  else {
+    return false
+  };
+};
 
 console.log(
   isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)
